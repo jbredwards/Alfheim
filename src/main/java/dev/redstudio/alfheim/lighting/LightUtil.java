@@ -26,7 +26,6 @@ public final class LightUtil {
 
 	public static int getLightValueForPos(final IBlockState blockState, final IBlockAccess blockAccess, final BlockPos blockPos, final Chunk chunk) {
 		if (IS_FLUIDLOGGED_API_LOADED) {
-			// Check Fluidlogged API FluidState
 			final int fluidStateLight = FluidState.getFromProvider(chunk, blockPos).getState().getLightValue(blockAccess, blockPos);
 			return Math.max(fluidStateLight, getLightValueForState(blockState, blockAccess, blockPos));
 		} else {
