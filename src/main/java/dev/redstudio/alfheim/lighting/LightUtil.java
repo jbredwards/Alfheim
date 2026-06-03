@@ -17,7 +17,6 @@ public final class LightUtil {
 
 	public static int getLightOpacityForPos(final IBlockState blockState, final IBlockAccess blockAccess, final BlockPos blockPos, final Chunk chunk) {
 		if (IS_FLUIDLOGGED_API_LOADED) {
-			// Check Fluidlogged API FluidState
 			final int fluidStateOpacity = FluidState.getFromProvider(chunk, blockPos).getState().getLightOpacity(blockAccess, blockPos);
 			return Math.max(fluidStateOpacity, blockState.getLightOpacity(blockAccess, blockPos));
 		} else {
